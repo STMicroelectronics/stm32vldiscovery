@@ -2,37 +2,20 @@
   ******************************************************************************
   * @file    stm32vl_discovery.c
   * @author  MCD Application Team
-  * @version V1.0.1
-  * @date    18-December-2015
+  * @version V1.0.2
+  * @date    14-April-2017
   * @brief   This file provides
   *            - set of firmware functions to manage Led and push-button
   *          available on STM32VL-Discovery board from STMicroelectronics.  
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * Copyright (c) 2015 STMicroelectronics.
+  * All rights reserved.
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -43,13 +26,13 @@
   * @{
   */
 
-/** @defgroup STM32VL_DISCOVERY STM32VL-Discovery
+/** @defgroup STM32VL_DISCOVERY STM32VL Discovery
   * @brief This file provides firmware functions to manage Leds and push-buttons
   *        available on STM32VL discovery board from STMicroelectronics.
   * @{
   */ 
 
-/** @defgroup STM32VL_DISCOVERY_Private_Defines Private_Defines
+/** @defgroup STM32VL_DISCOVERY_Private_Defines STM32VL DISCOVERY Private Defines
   * @{
   */ 
   
@@ -58,7 +41,7 @@
 */
 #define __STM32VL_DISCO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32VL_DISCO_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
-#define __STM32VL_DISCO_BSP_VERSION_SUB2   (0x01) /*!< [15:8]  sub2 version */
+#define __STM32VL_DISCO_BSP_VERSION_SUB2   (0x03) /*!< [15:8]  sub2 version */
 #define __STM32VL_DISCO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32VL_DISCO_BSP_VERSION        ((__STM32VL_DISCO_BSP_VERSION_MAIN << 24)\
                                            |(__STM32VL_DISCO_BSP_VERSION_SUB1 << 16)\
@@ -68,7 +51,7 @@
   * @}
   */ 
 
-/** @defgroup STM32VL_DISCOVERY_Private_Variables Private_Variables
+/** @defgroup STM32VL_DISCOVERY_Private_Variables STM32VL DISCOVERY Private Variables
   * @{
   */ 
 GPIO_TypeDef*   LED_PORT[LEDn] = {LED3_GPIO_PORT,
@@ -87,7 +70,7 @@ const uint8_t   BUTTON_IRQn[BUTTONn]  = {USER_BUTTON_EXTI_IRQn};
   */ 
 
 
-/** @defgroup STM32VL_DISCOVERY_Exported_Functions Exported_Functions
+/** @defgroup STM32VL_DISCOVERY_Exported_Functions STM32VL DISCOVERY Exported Functions
   * @{
   */ 
 
@@ -106,7 +89,6 @@ uint32_t BSP_GetVersion(void)
   *   This parameter can be one of following parameters:
   *     @arg LED3
   *     @arg LED4
-  * @retval None
   */
 void BSP_LED_Init(Led_TypeDef Led)
 {
@@ -132,7 +114,6 @@ void BSP_LED_Init(Led_TypeDef Led)
   *   This parameter can be one of following parameters:
   *     @arg LED3
   *     @arg LED4
-  * @retval None
   */
 void BSP_LED_On(Led_TypeDef Led)
 {
@@ -145,7 +126,6 @@ void BSP_LED_On(Led_TypeDef Led)
   *   This parameter can be one of following parameters:
   *     @arg LED3
   *     @arg LED4
-  * @retval None
   */
 void BSP_LED_Off(Led_TypeDef Led)
 {
@@ -158,7 +138,6 @@ void BSP_LED_Off(Led_TypeDef Led)
   *   This parameter can be one of following parameters:
   *     @arg LED3
   *     @arg LED4
-  * @retval None
   */
 void BSP_LED_Toggle(Led_TypeDef Led)
 {
@@ -174,7 +153,6 @@ void BSP_LED_Toggle(Led_TypeDef Led)
   *     @arg BUTTON_MODE_GPIO: Button will be used as simple IO 
   *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
   *                     generation capability  
-  * @retval None
   */
 void BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef Button_Mode)
 {
@@ -227,6 +205,5 @@ uint32_t BSP_PB_GetState(Button_TypeDef Button)
 /**
   * @}
   */
-    
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
 
